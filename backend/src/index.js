@@ -5,7 +5,7 @@ import cors from 'cors';
 import session from 'express-session';
 import passport from 'passport';
 import collegeRoutes from './routes/collegeRoutes.js';
-import authRoutes from './routes/authRoutes.js'; // Make sure this is the correct path
+import authRoutes from './routes/authRoutes.js'; 
 
 dotenv.config();
 
@@ -40,7 +40,7 @@ import './config/authConfig.js';
 
 // Routes
 app.use('/api/colleges', collegeRoutes);
-app.use('/auth', authRoutes); // Make sure this is the correct path
+app.use('/auth', authRoutes); 
 
 // Start server
 app.listen(3000, () => {

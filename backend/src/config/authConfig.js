@@ -18,7 +18,7 @@ passport.use(new GoogleStrategy({
         googleId: profile.id,
         username: profile.displayName,
         email: profile.emails[0].value,
-        profilePic: profile._json.picture // Extract profile picture URL from Google profile
+        profilePic: profile._json.picture
       });
       return done(null, user);
     } catch (err) {

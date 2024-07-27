@@ -1,13 +1,24 @@
-// models/User.js
 import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
 
 const userSchema = new mongoose.Schema({
-  googleId: { type: String, unique: true },
+  googleId: { type: String, unique: true, sparse: true },
   username: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  profilePic: { type: String }, 
+  password: { type: String },
+  profilePic: { type: String },
   isAdmin: { type: Boolean, default: false },
 }, { timestamps: true });
+
+// Pre-save hook to hash password
+userSchema.pre('save', async function(next) {
+  if (!this.isModified('password')) {
+    return next();
+  }
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
+  next();
+});
 
 userSchema.statics.findOrCreate = async function(condition) {
   const User = this;
@@ -16,7 +27,6 @@ userSchema.statics.findOrCreate = async function(condition) {
     if (user) {
       return user;
     } else {
-      // Create a new user with the provided condition
       user = new User(condition);
       await user.save();
       return user;
@@ -24,6 +34,11 @@ userSchema.statics.findOrCreate = async function(condition) {
   } catch (err) {
     throw err;
   }
+};
+
+// Method to compare password
+userSchema.methods.comparePassword = function(candidatePassword) {
+  return bcrypt.compare(candidatePassword, this.password);
 };
 
 export default mongoose.model('User', userSchema);
