@@ -106,9 +106,9 @@ const FindRank = () => {
                 onChange={handleCategoryChange}
                 displayEmpty
                 sx={{ 
-                  color: '#FFFFFF', // White text color
-                  border: '1px solid #FFFFFF', // White border color
-                  '.MuiSelect-icon': { color: '#FFFFFF' } // White color for dropdown icon
+                  color: '#FFFFFF', 
+                  border: '1px solid #FFFFFF', 
+                  '.MuiSelect-icon': { color: '#FFFFFF' } 
                 }}
                 renderValue={(selected) => {
                   if (selected === '') {
@@ -131,9 +131,9 @@ const FindRank = () => {
                 onChange={handleGenderChange}
                 displayEmpty
                 sx={{ 
-                  color: '#FFFFFF', // White text color
-                  border: '1px solid #FFFFFF', // White border color
-                  '.MuiSelect-icon': { color: '#FFFFFF' } // White color for dropdown icon
+                  color: '#FFFFFF', 
+                  border: '1px solid #FFFFFF', 
+                  '.MuiSelect-icon': { color: '#FFFFFF' } 
                 }}
                 renderValue={(selected) => {
                   if (selected === '') {
