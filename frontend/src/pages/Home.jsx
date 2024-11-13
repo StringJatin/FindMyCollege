@@ -1,12 +1,14 @@
 import React from 'react';
-import Card from '../components/Card';
 import Navbar from '../components/Navbar';
+import Featured from '../components/Featured';
+import Colleges from '../components/Colleges';
 
 const Home = () => {
   return (
     <div className='flex-col justify-between'>
       <Navbar/>
-      <Card/>
+      <Featured/>
+      <Colleges/>
     </div>
   );
 }
