@@ -40,8 +40,8 @@ const Featured = () => {
   ];
 
   return (
-    <div className="bg-black p-8">
-      <h2 className="text-white text-3xl font-medium mb-6">Featured Colleges</h2>
+    <div className="bg-custom-primary p-8">
+      <h2 className="custom-secondary text-3xl font-medium mb-6">Featured Colleges</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {colleges.map((college, index) => (
           <Card key={index} {...college} />

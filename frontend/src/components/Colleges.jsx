@@ -150,8 +150,8 @@ const Colleges = () => {
           }
       ];
   return (
-    <div className="bg-black p-8">
-    <h2 className="text-white text-3xl font-medium ">Top Colleges For You</h2>
+    <div className="bg-custom-primary p-8">
+    <h2 className="custom-secondary text-3xl font-medium ">Top Colleges For You</h2>
     <FilterButton/>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
      {

@@ -4,7 +4,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import React from 'react'
 const Footer = () => {
     return (
-        <div className='flex-col justify-between px-8 py-8 bg-black text-white'>
+        <div className='flex-col justify-between px-8 py-8 bg-custom-primary custom-secondary'>
             <div className='flex w-full justify-between'>
                 <div className='flex-1'>
                     <p className='font-poppins text-lg'>Get Exclusive Updates!</p>

@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 
+:root {
+  --primary-color: #191919;
+  --secondary-color: #F2E7D5;
+  --font-family-poppins: 'Poppins', sans-serif;
+  --font-size-base: 16px;
+}
+
 
 body {
   margin: 0;
@@ -16,4 +23,21 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+.custom-primary {
+  color: var(--primary-color);
+}
+
+.bg-custom-primary {
+  background-color: var(--primary-color);
+}
+
+.custom-secondary {
+  color: var(--secondary-color);
+}
+
+.bg-custom-secondary {
+  background-color: var(--secondary-color);
 }
