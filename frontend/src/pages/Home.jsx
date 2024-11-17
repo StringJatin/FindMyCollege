@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Featured from '../components/Featured';
 import Colleges from '../components/Colleges';
+import Footer from '../components/Footer';
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
       <Navbar/>
       <Featured/>
       <Colleges/>
+      <Footer/>
     </div>
   );
 }

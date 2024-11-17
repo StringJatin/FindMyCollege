@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}", // Adjust this based on your file types
   ],
   theme: {
-    extend: {},
-  },
+    extend: {
+        fontFamily: {
+            sans: ['Poppins', 'sans-serif'], // Default sans now uses Poppins
+        },
+    },
+},
   plugins: [],
 }
