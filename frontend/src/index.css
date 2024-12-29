@@ -4,10 +4,11 @@
 
 
 :root {
-  --primary-color: #191919;
-  --secondary-color: #F2E7D5;
+  --primary-color: #ffffff;
+  --secondary-color: #1c37d2;
   --font-family-poppins: 'Poppins', sans-serif;
   --font-size-base: 16px;
+  --background-color : #1E3A8A;
 }
 
 
@@ -18,6 +19,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font: var(--font-family-poppins);
 }
 
 code {
@@ -34,10 +36,18 @@ code {
   background-color: var(--primary-color);
 }
 
+.bg-color{
+  background-color: var(--background-color);
+}
+
 .custom-secondary {
   color: var(--secondary-color);
 }
 
 .bg-custom-secondary {
   background-color: var(--secondary-color);
+}
+
+.font-color{
+  color: #000000;
 }

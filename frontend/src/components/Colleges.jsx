@@ -151,7 +151,10 @@ const Colleges = () => {
       ];
   return (
     <div className="bg-custom-primary p-8">
-    <h2 className="custom-secondary text-3xl font-medium ">Top Colleges For You</h2>
+    <div>
+      <h2 className="font-color text-3xl font-bold ">Top Colleges For You</h2>
+      <span>Colleges that best match your preferences and rank.</span>
+      </div>
     <FilterButton/>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
      {
