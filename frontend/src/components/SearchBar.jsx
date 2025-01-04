@@ -41,7 +41,7 @@ const SearchBar = () => {
               </div>
             </div>
             
-            <div className="min-w-[200px] bg-white rounded-md m-1 p-2">
+            <div className="min-w-[200px] bg-custom-primary rounded-md m-1 p-2">
               <div className="flex items-center gap-2">
                 <Calendar className="text-gray-400 w-5 h-5" />
                 <select className="w-full outline-none text-gray-800">
@@ -53,7 +53,7 @@ const SearchBar = () => {
               </div>
             </div>
             
-            <div className="min-w-[200px] bg-white rounded-md m-1 p-2">
+            <div className="min-w-[200px] bg-custom-primary rounded-md m-1 p-2">
               <div className="flex items-center gap-2">
                 <Users className="text-gray-400 w-5 h-5" />
                 <select className="w-full outline-none text-gray-800">

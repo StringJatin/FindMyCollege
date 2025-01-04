@@ -151,19 +151,21 @@ const Colleges = () => {
       ];
   return (
     <div className="bg-custom-primary p-8">
-    <div>
-      <h2 className="font-color text-3xl font-bold ">Top Colleges For You</h2>
-      <span>Colleges that best match your preferences and rank.</span>
-      </div>
-    <FilterButton/>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-     {
-        colleges.map((college,index)=>{
-           return <Card key={index} {...college}/>
-        })
-     }
+    {/* Sticky Container */}
+    <div className="sticky top-0 bg-custom-primary z-10 pb-2">
+        <h2 className="font-color text-3xl font-bold">Top Colleges For You</h2>
+        <span className="text-gray-500">Colleges that best match your preferences and rank.</span>
+        <div className="mt-1">
+            <FilterButton />
+        </div>
     </div>
-  </div>
+    {/* Scrollable Cards */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+        {colleges.map((college, index) => (
+            <Card key={index} {...college} />
+        ))}
+    </div>
+</div>
   )
 }
 

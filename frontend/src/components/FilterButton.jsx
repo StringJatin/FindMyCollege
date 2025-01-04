@@ -1,31 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-const FilterButton = ({ options = ['Public', 'Private', 'Government Funded', 'All'], option=0 }) => {
-  const [selected, setSelected] = useState(option); 
-  console.log(selected);
+const FilterButton = ({
+  options = ["Public", "Private", "Government Funded", "All"],
+  defaultOption = 0,
+}) => {
+  const [selected, setSelected] = useState(defaultOption);
 
-  const handleSelect = (option) => {
-    setSelected(option);
+  const handleSelect = (index) => {
+    setSelected(index);
   };
 
   return (
-    <div className="bg-custom-primary flex m-auto max-w-50 py-8 justify-start gap-4">
+    <div className="flex justify-center gap-4 mt-4">
       {options.map((option, index) => (
-        <div
+        <button
           key={index}
-          className={`rounded-xl p-2 px-4 cursor-pointer ${
-            selected === index ? 'bg-custom-secodary' : 'bg-custom-primary'
-          }`}
-          onClick={() => handleSelect(option)}
-        >
-          <h2
-            className={`text-lg font-medium ${
-              selected === option ? 'custom-primary' : 'custom-secondary'
+          onClick={() => handleSelect(index)}
+          className={`px-6 py-2 rounded-full border-2 text-sm font-bold transition 
+            ${
+              selected === index
+                ? "bg-custom-secondary text-white border-blue-500"
+                : "bg-custom-primary text-blue-500 border-blue-500 hover:bg-blue-100"
             }`}
-          >
-            {option}
-          </h2>
-        </div>
+        >
+          {option}
+        </button>
       ))}
     </div>
   );
