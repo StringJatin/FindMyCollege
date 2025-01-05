@@ -45,10 +45,12 @@ const SearchBar = () => {
               <div className="flex items-center gap-2">
                 <Calendar className="text-gray-400 w-5 h-5" />
                 <select className="w-full outline-none text-gray-800">
-                  <option>Course Duration</option>
-                  <option>2 Years</option>
-                  <option>3 Years</option>
-                  <option>4 Years</option>
+                  <option>Exam Type</option>
+                  {
+                    examTypes.map((exam)=>{
+                        return <option>{exam.label}</option>
+                    })
+                  }
                 </select>
               </div>
             </div>
