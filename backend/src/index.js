@@ -6,6 +6,7 @@ import session from 'express-session';
 import passport from 'passport';
 import collegeRoutes from './routes/collegeRoutes.js';
 import authRoutes from './routes/authRoutes.js'; 
+import adminRoutes from './routes/adminRoutes.js';
 
 dotenv.config();
 
@@ -40,7 +41,8 @@ import './config/authConfig.js';
 
 // Routes
 app.use('/api/colleges', collegeRoutes);
-app.use('/auth', authRoutes); 
+app.use('/auth', authRoutes);
+app.use('/admin/auth',adminRoutes); 
 
 // Start server
 app.listen(3000, () => {
