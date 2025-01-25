@@ -1,9 +1,11 @@
 import express from 'express';
 const router = express.Router();
 import College from '../models/College.js';
+import authenticateToken from '../middlewares/authMiddleware.js';
+import { validateCollege } from '../middlewares/validator.js';
 
 // GET all colleges
-router.get('/', async (req, res) => {
+router.get('/', authenticateToken, async (req, res) => {
   try {
     const colleges = await College.find();
     res.json(colleges);
@@ -125,7 +127,7 @@ router.get('/rank/:jeeRank', async (req, res) => {
 
 
 // POST a new college
-router.post('/', async (req, res) => {
+router.post('/', authenticateToken, validateCollege, async (req, res) => {
   const {
     name, location, state, instituteType, imageUrl, logo, website, entranceTest, rank, rating, description, cost, faqs, tab_description, campus_life, degrees
   } = req.body;
