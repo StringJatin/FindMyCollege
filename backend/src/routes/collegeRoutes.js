@@ -127,18 +127,25 @@ router.get('/rank/:jeeRank', async (req, res) => {
 // POST a new college
 router.post('/', async (req, res) => {
   const {
-    name, location, state, instituteType, imageUrl, website, entranceTest, rank, degrees
+    name, location, state, instituteType, imageUrl, logo, website, entranceTest, rank, rating, description, cost, faqs, tab_description, campus_life, degrees
   } = req.body;
 
   const college = new College({
-    name,
-    location,
-    state,
-    instituteType,
-    imageUrl,
-    website,
-    entranceTest,
-    rank,
+    name, 
+    location, 
+    state, 
+    instituteType, 
+    imageUrl, 
+    logo, 
+    website, 
+    entranceTest, 
+    rank, 
+    rating, 
+    description, 
+    cost, 
+    faqs, 
+    tab_description, 
+    campus_life, 
     degrees
   });
 
