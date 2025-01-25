@@ -4,10 +4,10 @@ import authenticateToken from '../middlewares/authMiddleware.js';
 import User from '../models/User.js';
 
 // GET all Users
-router.get('/', authenticateToken, async (req, res) => {
+router.post('/', authenticateToken, async (req, res) => {
   try {
-    const colleges = await User.find();
-    res.json(colleges);
+    const users = await User.find();
+    res.json(users);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
