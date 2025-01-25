@@ -6,6 +6,7 @@ import session from 'express-session';
 import passport from 'passport';
 import collegeRoutes from './routes/collegeRoutes.js';
 import authRoutes from './routes/authRoutes.js'; 
+import adminRoutes from './routes/adminRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import './config/authConfig.js';
 import { limiter } from './utils/helpers.js';
@@ -41,7 +42,8 @@ app.use(passport.session());
 app.use(limiter);
 // Routes
 app.use('/api/colleges', collegeRoutes);
-app.use('/auth', authRoutes); 
+app.use('/auth', authRoutes);
+app.use('/admin/auth',adminRoutes); 
 app.use('/api/users', userRoutes);
 
 // Start server
