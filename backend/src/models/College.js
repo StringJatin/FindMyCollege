@@ -70,6 +70,82 @@ const degreeSchema = new mongoose.Schema({
   }
 });
 
+// Schema for cost details
+const costSchema = new mongoose.Schema({
+  course_type: {
+    type: String,
+    required: true
+  },
+  tuition_fees: {
+    type: String,
+    required: true
+  },
+  eligibility: {
+    type: String,
+    required: true
+  }
+});
+
+// Schema for FAQs
+const faqSchema = new mongoose.Schema({
+  question: {
+    type: String,
+    required: true
+  },
+  answer: {
+    type: String,
+    required: true
+  }
+});
+
+// Schema for tab descriptions
+const tabDescriptionSchema = new mongoose.Schema({
+  overview_description: {
+    type: String,
+    required: true
+  },
+  admissions_description: {
+    type: String,
+    required: true
+  },
+  cost_description: {
+    type: String,
+    required: true
+  },
+  campusLife_description: {
+    type: String,
+    required: true
+  }
+});
+
+// Schema for campus life details
+const campusLifeSchema = new mongoose.Schema({
+  setting: {
+    type: String,
+    required: true
+  },
+  undergraduate_students: {
+    type: Number,
+    required: true
+  },
+  average_hostel_cost: {
+    type: Number,
+    required: true
+  },
+  sports: {
+    type: [String],
+    default: []
+  },
+  housingOptions: {
+    type: [String],
+    default: []
+  },
+  extracurricular: {
+    type: [String],
+    default: []
+  }
+});
+
 // Schema for colleges
 const collegeSchema = new mongoose.Schema({
   name: {
@@ -92,6 +168,10 @@ const collegeSchema = new mongoose.Schema({
     type: [String],
     default: []
   },
+  logo: {
+    type: String,
+    required: true
+  },
   website: {
     type: String,
     default: null
@@ -102,6 +182,30 @@ const collegeSchema = new mongoose.Schema({
   },
   rank: {
     type: Number,
+    required: true
+  },
+  rating: {
+    type: Number,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  cost: {
+    type: [costSchema],
+    default: []
+  },
+  faqs: {
+    type: [faqSchema],
+    default: []
+  },
+  tab_description: {
+    type: [tabDescriptionSchema],
+    default: []
+  },
+  campus_life: {
+    type: campusLifeSchema,
     required: true
   },
   degrees: {

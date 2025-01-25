@@ -7,6 +7,9 @@ import passport from 'passport';
 import collegeRoutes from './routes/collegeRoutes.js';
 import authRoutes from './routes/authRoutes.js'; 
 import adminRoutes from './routes/adminRoutes.js';
+import userRoutes from './routes/userRoutes.js';
+import './config/authConfig.js';
+import { limiter } from './utils/helpers.js';
 
 dotenv.config();
 
@@ -14,10 +17,7 @@ dotenv.config();
 const app = express();
 
 // Database connection
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log('connected to mongodb!'))
 .catch(err => console.log('not connected', err));
 
@@ -37,12 +37,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Load passport config
-import './config/authConfig.js';
 
+
+app.use(limiter);
 // Routes
 app.use('/api/colleges', collegeRoutes);
 app.use('/auth', authRoutes);
 app.use('/admin/auth',adminRoutes); 
+app.use('/api/users', userRoutes);
 
 // Start server
 app.listen(3000, () => {
