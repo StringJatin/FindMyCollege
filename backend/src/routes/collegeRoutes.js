@@ -14,6 +14,23 @@ router.get('/', authenticateToken, async (req, res) => {
   }
 });
 
+
+//GET single college
+router.get('/:id',authenticateToken, async (req, res) => {
+  const { id } = req.params;
+   try{
+    const college = await College.findById(id);
+    if(college){
+      res.json(college);
+    } else {
+      res.status(404).json({ message: 'College not found' });
+    }
+   }
+   catch(error){
+     res.status(500).json({ message: error.message });
+   }
+});
+
 // GET colleges by JEE rank
 router.get('/rank/:jeeRank', async (req, res) => {
   const { jeeRank } = req.params;
