@@ -8,6 +8,7 @@ import collegeRoutes from './routes/collegeRoutes.js';
 import authRoutes from './routes/authRoutes.js'; 
 import adminRoutes from './routes/adminRoutes.js';
 import userRoutes from './routes/userRoutes.js';
+import otherRoutes from './routes/otherRoutes.js';
 import './config/authConfig.js';
 import { limiter } from './utils/helpers.js';
 
@@ -45,6 +46,7 @@ app.use('/api/colleges', collegeRoutes);
 app.use('/auth', authRoutes);
 app.use('/admin/auth',adminRoutes); 
 app.use('/api/users', userRoutes);
+app.use('/api/india',otherRoutes);
 
 // Start server
 app.listen(3000, () => {
