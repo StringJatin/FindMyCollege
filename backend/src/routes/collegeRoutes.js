@@ -3,6 +3,7 @@ const router = express.Router();
 import College from '../models/College.js';
 import authenticateToken from '../middlewares/authMiddleware.js';
 import { validateCollege } from '../middlewares/validator.js';
+import { editCollege } from '../controllers/collegeControllers.js';
 
 // GET all colleges
 router.get('/', authenticateToken, async (req, res) => {
@@ -175,4 +176,11 @@ router.post('/', authenticateToken, validateCollege, async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 });
+
+
+// PUT a college
+router.put('/:id',authenticateToken,editCollege);
+
+
+
 export default router;
