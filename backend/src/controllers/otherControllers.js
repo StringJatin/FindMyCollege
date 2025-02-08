@@ -31,7 +31,7 @@ export const postStates = async(req, res)=>{
 export const postCsvtojson = async (req, res) => {
   try {
       if (!req.file) {
-          return res.status(400).json({ error: "No file uploaded." });
+          return res.status(400).json({ success : false, error: "No file uploaded." });
       }
 
       const fileBuffer = Buffer.from(req.file.buffer);
