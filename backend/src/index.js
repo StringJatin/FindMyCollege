@@ -47,6 +47,7 @@ app.use('/auth', authRoutes);
 app.use('/admin/auth',adminRoutes); 
 app.use('/api/users', userRoutes);
 app.use('/api/india',otherRoutes);
+app.use('/api',otherRoutes);
 
 // Start server
 app.listen(3000, () => {
