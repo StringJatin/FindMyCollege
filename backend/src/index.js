@@ -9,6 +9,7 @@ import authRoutes from './routes/authRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import otherRoutes from './routes/otherRoutes.js';
+import featuredRoutes from './routes/featuredRoutes.js'
 import './config/authConfig.js';
 import { limiter } from './utils/helpers.js';
 
@@ -47,6 +48,7 @@ app.use('/auth', authRoutes);
 app.use('/admin/auth',adminRoutes); 
 app.use('/api/users', userRoutes);
 app.use('/api/india',otherRoutes);
+app.use('/api/featured',featuredRoutes);
 app.use('/api',otherRoutes);
 
 // Start server

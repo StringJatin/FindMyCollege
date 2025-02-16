@@ -17,7 +17,7 @@ router.get('/', authenticateToken, async (req, res) => {
 
 
 //GET single college
-router.get('/:id',authenticateToken, async (req, res) => {
+router.get('/:id', async (req, res) => {
   const { id } = req.params;
    try{
     const college = await College.findById(id);
