@@ -5,7 +5,7 @@ const genderRankSchema = new mongoose.Schema({
   gender: {
     type: String,
     required: true,
-    enum: ['Male', 'Female']
+    enum: ['Gender-Neutral', 'Female-only (including Supernumerary)']
   },
   openingRank: {
     type: Number,
@@ -23,9 +23,7 @@ const categorySchema = new mongoose.Schema({
     type: String,
     required: true,
     enum: [
-      'SC', 'ST', 'OBC-NCL', 'EWS', 'ST(PWD)', 
-      'SC(PWD)', 'OBC-NCL(PWD)', 'EWS(PWD)', 
-      'OPEN', 'OPEN(PWD)'
+      'OPEN','OPEN (PwD)','EWS','OBC-NCL','OBC-NCL (PwD)','SC','ST','EWS (PwD)','SC (PwD)','ST (PwD)'
     ]
   },
   ranks: {
@@ -154,15 +152,15 @@ const collegeSchema = new mongoose.Schema({
   },
   location: {
     type: String,
-    required: true
+    required: false
   },
   state: {
     type: String,
-    required: true
+    required: false
   },
   instituteType: {
     type: String,
-    required: true
+    required: false
   },
   imageUrl: {
     type: [String],
@@ -170,7 +168,7 @@ const collegeSchema = new mongoose.Schema({
   },
   logo: {
     type: String,
-    required: true
+    required: false
   },
   website: {
     type: String,
@@ -182,15 +180,15 @@ const collegeSchema = new mongoose.Schema({
   },
   rank: {
     type: Number,
-    required: true
+    required: false
   },
   rating: {
     type: Number,
-    required: true
+    required: false
   },
   description: {
     type: String,
-    required: true
+    required: false
   },
   cost: {
     type: [costSchema],
@@ -206,7 +204,7 @@ const collegeSchema = new mongoose.Schema({
   },
   campus_life: {
     type: campusLifeSchema,
-    required: true
+    required: false
   },
   degrees: {
     type: [degreeSchema],
