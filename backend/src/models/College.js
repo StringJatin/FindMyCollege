@@ -5,7 +5,7 @@ const genderRankSchema = new mongoose.Schema({
   gender: {
     type: String,
     required: true,
-    enum: ['Gender-Neutral', 'Female-only (including Supernumerary)']
+    enum: ['Male','Female','Gender-Neutral', 'Female-only (including Supernumerary)']
   },
   openingRank: {
     type: Number,

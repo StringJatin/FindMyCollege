@@ -145,7 +145,7 @@ router.get('/rank/:jeeRank', async (req, res) => {
 
 
 // POST a new college
-router.post('/', authenticateToken, validateCollege, async (req, res) => {
+router.post('/', authenticateToken, async (req, res) => {
   const {
     name, location, state, instituteType, imageUrl, logo, website, entranceTest, rank, rating, description, cost, faqs, tab_description, campus_life, degrees
   } = req.body;
