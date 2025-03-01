@@ -4,16 +4,16 @@ import mongoose from 'mongoose';
 const genderRankSchema = new mongoose.Schema({
   gender: {
     type: String,
-    required: true,
-    enum: ['Male', 'Female']
+    required: false,
+    enum: ['Male','Female','Gender-Neutral', 'Female-only (including Supernumerary)']
   },
   openingRank: {
     type: Number,
-    required: true
+    required: false
   },
   closingRank: {
     type: Number,
-    required: true
+    required: false
   }
 });
 
@@ -21,11 +21,9 @@ const genderRankSchema = new mongoose.Schema({
 const categorySchema = new mongoose.Schema({
   category: {
     type: String,
-    required: true,
+    required: false,
     enum: [
-      'SC', 'ST', 'OBC-NCL', 'EWS', 'ST(PWD)', 
-      'SC(PWD)', 'OBC-NCL(PWD)', 'EWS(PWD)', 
-      'OPEN', 'OPEN(PWD)'
+      'OPEN','OPEN (PwD)','EWS','OBC-NCL','OBC-NCL (PwD)','SC','ST','EWS (PwD)','SC (PwD)','ST (PwD)'
     ]
   },
   ranks: {
@@ -50,7 +48,7 @@ const quotaSchema = new mongoose.Schema({
 const branchSchema = new mongoose.Schema({
   branchName: {
     type: String,
-    required: true
+    required: false
   },
   quotas: {
     type: quotaSchema,
@@ -62,7 +60,7 @@ const branchSchema = new mongoose.Schema({
 const degreeSchema = new mongoose.Schema({
   degreeName: {
     type: String,
-    required: true
+    required: false
   },
   branches: {
     type: [branchSchema],
@@ -74,15 +72,15 @@ const degreeSchema = new mongoose.Schema({
 const costSchema = new mongoose.Schema({
   course_type: {
     type: String,
-    required: true
+    required: false
   },
   tuition_fees: {
     type: String,
-    required: true
+    required: false
   },
   eligibility: {
     type: String,
-    required: true
+    required: false
   }
 });
 
@@ -90,11 +88,11 @@ const costSchema = new mongoose.Schema({
 const faqSchema = new mongoose.Schema({
   question: {
     type: String,
-    required: true
+    required: false
   },
   answer: {
     type: String,
-    required: true
+    required: false
   }
 });
 
@@ -102,19 +100,19 @@ const faqSchema = new mongoose.Schema({
 const tabDescriptionSchema = new mongoose.Schema({
   overview_description: {
     type: String,
-    required: true
+    required: false
   },
   admissions_description: {
     type: String,
-    required: true
+    required: false
   },
   cost_description: {
     type: String,
-    required: true
+    required: false
   },
   campusLife_description: {
     type: String,
-    required: true
+    required: false
   }
 });
 
@@ -122,15 +120,15 @@ const tabDescriptionSchema = new mongoose.Schema({
 const campusLifeSchema = new mongoose.Schema({
   setting: {
     type: String,
-    required: true
+    required: false
   },
   undergraduate_students: {
     type: Number,
-    required: true
+    required: false
   },
   average_hostel_cost: {
     type: Number,
-    required: true
+    required: false
   },
   sports: {
     type: [String],
@@ -150,19 +148,20 @@ const campusLifeSchema = new mongoose.Schema({
 const FeaturedSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   location: {
     type: String,
-    required: true
+    required: false
   },
   state: {
     type: String,
-    required: true
+    required: false
   },
   instituteType: {
     type: String,
-    required: true
+    required: false
   },
   imageUrl: {
     type: [String],
@@ -170,7 +169,7 @@ const FeaturedSchema = new mongoose.Schema({
   },
   logo: {
     type: String,
-    required: true
+    required: false
   },
   website: {
     type: String,
@@ -182,15 +181,15 @@ const FeaturedSchema = new mongoose.Schema({
   },
   rank: {
     type: Number,
-    required: true
+    required: false
   },
   rating: {
     type: Number,
-    required: true
+    required: false
   },
   description: {
     type: String,
-    required: true
+    required: false
   },
   cost: {
     type: [costSchema],
@@ -206,7 +205,7 @@ const FeaturedSchema = new mongoose.Schema({
   },
   campus_life: {
     type: campusLifeSchema,
-    required: true
+    required: false
   },
   degrees: {
     type: [degreeSchema],
@@ -214,6 +213,7 @@ const FeaturedSchema = new mongoose.Schema({
   },
   is_featured : {
     type: Boolean,
+    required: false,
     default: false
   }
 }, {

@@ -4,16 +4,16 @@ import mongoose from 'mongoose';
 const genderRankSchema = new mongoose.Schema({
   gender: {
     type: String,
-    required: true,
+    required: false,
     enum: ['Male','Female','Gender-Neutral', 'Female-only (including Supernumerary)']
   },
   openingRank: {
     type: Number,
-    required: true
+    required: false
   },
   closingRank: {
     type: Number,
-    required: true
+    required: false
   }
 });
 
@@ -21,7 +21,7 @@ const genderRankSchema = new mongoose.Schema({
 const categorySchema = new mongoose.Schema({
   category: {
     type: String,
-    required: true,
+    required: false,
     enum: [
       'OPEN','OPEN (PwD)','EWS','OBC-NCL','OBC-NCL (PwD)','SC','ST','EWS (PwD)','SC (PwD)','ST (PwD)'
     ]
@@ -48,7 +48,7 @@ const quotaSchema = new mongoose.Schema({
 const branchSchema = new mongoose.Schema({
   branchName: {
     type: String,
-    required: true
+    required: false
   },
   quotas: {
     type: quotaSchema,
@@ -60,7 +60,7 @@ const branchSchema = new mongoose.Schema({
 const degreeSchema = new mongoose.Schema({
   degreeName: {
     type: String,
-    required: true
+    required: false
   },
   branches: {
     type: [branchSchema],
@@ -72,15 +72,15 @@ const degreeSchema = new mongoose.Schema({
 const costSchema = new mongoose.Schema({
   course_type: {
     type: String,
-    required: true
+    required: false
   },
   tuition_fees: {
     type: String,
-    required: true
+    required: false
   },
   eligibility: {
     type: String,
-    required: true
+    required: false
   }
 });
 
@@ -88,11 +88,11 @@ const costSchema = new mongoose.Schema({
 const faqSchema = new mongoose.Schema({
   question: {
     type: String,
-    required: true
+    required: false
   },
   answer: {
     type: String,
-    required: true
+    required: false
   }
 });
 
@@ -100,19 +100,19 @@ const faqSchema = new mongoose.Schema({
 const tabDescriptionSchema = new mongoose.Schema({
   overview_description: {
     type: String,
-    required: true
+    required: false
   },
   admissions_description: {
     type: String,
-    required: true
+    required: false
   },
   cost_description: {
     type: String,
-    required: true
+    required: false
   },
   campusLife_description: {
     type: String,
-    required: true
+    required: false
   }
 });
 
@@ -120,15 +120,15 @@ const tabDescriptionSchema = new mongoose.Schema({
 const campusLifeSchema = new mongoose.Schema({
   setting: {
     type: String,
-    required: true
+    required: false
   },
   undergraduate_students: {
     type: Number,
-    required: true
+    required: false
   },
   average_hostel_cost: {
     type: Number,
-    required: true
+    required: false
   },
   sports: {
     type: [String],
@@ -148,7 +148,8 @@ const campusLifeSchema = new mongoose.Schema({
 const collegeSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   location: {
     type: String,
