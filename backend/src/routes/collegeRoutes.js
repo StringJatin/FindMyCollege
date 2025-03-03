@@ -6,7 +6,7 @@ import { validateCollege } from '../middlewares/validator.js';
 import { editCollege } from '../controllers/collegeControllers.js';
 
 // GET all colleges
-router.get('/', authenticateToken, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const colleges = await College.find();
     res.json(colleges);
